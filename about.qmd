@@ -1,13 +1,48 @@
 ---
-title: "About"
-image: profile.jpg
+title: "A Little About Me"
 about:
+  id: hero-heading
   template: jolla
+  image: profile.jpg
   links:
     - icon: github
-      text: Github
-      href: https://github.com/etc5523-2022
-
+      text: "Github"
+      href: "https://github.com/wlai0012"
+    - icon: REDnote
+      text: "REDnote"
+      href: "https://www.xiaohongshu.com/user/profile/5bbc4a4def3da50001c93d7d?xhsshare=CopyLink&appuid=5bbc4a4def3da50001c93d7d&apptime=1727975516&share_id=9a839e09bf2949c8bbbdaa66ddbf17e6"
+title-block-banner: true
 ---
 
-This is a blog template for the ETC5523 Communicating with Data assessment at Monash University.
+
+:::{#hero-heading}
+
+Hello! I’m Christy Lai from Hong Kong. 
+
+Currently, I am pursuing a Master of Business Analytics while also working as an early childhood teacher.
+
+I genuinely enjoy working with children, as it brings me joy to see their growth and development. However, I also have a strong interest in the business analysis industry.
+
+As I embark on this journey, I look forward to connecting with others who share similar interests and learning from their experiences in the field of business analytics.
+
+## Education
+
+**Monash University | Melbourne, AU**  
+Master of Business Analytics | Mar 2024 - Present
+
+**RMIT University | Melbourne, AU**  
+Graduate Diploma in Early Childhood Education | Mar 2023 - Nov 2023
+
+**Monash University | Melbourne, AU**  
+Bachelor of Business | Oct 2017 - Dec 2020
+
+## Interests
+
+While I enjoy spending time at home, I also love going hiking with friends.
+
+I find that the outdoors provides a refreshing break. In addition to hiking, I am passionate about sports, particularly swimming and badminton.
+
+I also enjoy playing open-world games such as Genshin Impact, Rune Factory, and Stardew Valley, which allow me to immerse myself in different adventures and stories.
+
+:::
+

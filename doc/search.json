@@ -1,0 +1,79 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome!",
+    "section": "",
+    "text": "Hello! I’m Christy!\nI am an early childhood teacher and a new student exploring the field of business analytics. Currently, I’m learning and experimenting with R, and this personal website serves as a record of my journey and discoveries.\nThanks for stopping by!"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Blog Articles",
+    "section": "",
+    "text": "Analysis of The Great American Coffee Taste Test\n\n\n\n\n\n\ncoffee\n\n\n\n\n\n\n\n\n\nOct 4, 2024\n\n\nChristy LAI\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "A Little About Me",
+    "section": "",
+    "text": "Hello! I’m Christy Lai from Hong Kong.\nCurrently, I am pursuing a Master of Business Analytics while also working as an early childhood teacher.\nI genuinely enjoy working with children, as it brings me joy to see their growth and development. However, I also have a strong interest in the business analysis industry.\nAs I embark on this journey, I look forward to connecting with others who share similar interests and learning from their experiences in the field of business analytics.\n\n\nMonash University | Melbourne, AU\nMaster of Business Analytics | Mar 2024 - Present\nRMIT University | Melbourne, AU\nGraduate Diploma in Early Childhood Education | Mar 2023 - Nov 2023\nMonash University | Melbourne, AU\nBachelor of Business | Oct 2017 - Dec 2020\n\n\n\nWhile I enjoy spending time at home, I also love going hiking with friends.\nI find that the outdoors provides a refreshing break. In addition to hiking, I am passionate about sports, particularly swimming and badminton.\nI also enjoy playing open-world games such as Genshin Impact, Rune Factory, and Stardew Valley, which allow me to immerse myself in different adventures and stories.\n\n \n  \n   \n  \n    \n     Github\n  \n  \n    \n     REDnote"
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "A Little About Me",
+    "section": "",
+    "text": "Monash University | Melbourne, AU\nMaster of Business Analytics | Mar 2024 - Present\nRMIT University | Melbourne, AU\nGraduate Diploma in Early Childhood Education | Mar 2023 - Nov 2023\nMonash University | Melbourne, AU\nBachelor of Business | Oct 2017 - Dec 2020"
+  },
+  {
+    "objectID": "about.html#interests",
+    "href": "about.html#interests",
+    "title": "A Little About Me",
+    "section": "",
+    "text": "While I enjoy spending time at home, I also love going hiking with friends.\nI find that the outdoors provides a refreshing break. In addition to hiking, I am passionate about sports, particularly swimming and badminton.\nI also enjoy playing open-world games such as Genshin Impact, Rune Factory, and Stardew Valley, which allow me to immerse myself in different adventures and stories."
+  },
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Analysis of The Great American Coffee Taste Test",
+    "section": "",
+    "text": "Imagining you are an analyst working for a research company, we are conducting an analysis to help our client develop a strategy for opening their coffee shop. Using data from the “Great American Coffee Taste Test,” conducted by James Hoffmann and Cometeer in October 2023, we aim to uncover consumer preferences and key trends.\nThe dataset used in our analysis is publicly available through the TidyTuesday project and James Hoffmann Youtube Channel."
+  },
+  {
+    "objectID": "posts/welcome/index.html#problem-description",
+    "href": "posts/welcome/index.html#problem-description",
+    "title": "Analysis of The Great American Coffee Taste Test",
+    "section": "Problem Description",
+    "text": "Problem Description\nOur client is preparing to open a coffee shop and wants to make data-driven decisions about which coffee types, brewing methods, and price ranges to offer. Using data from the Great American Coffee Taste Test conducted in October 2023, we aim to analyze consumer preferences and uncover insights that will help guide their strategy.\nAdditionally, the U.S. consumes the most coffee globally, drinking over 3.5 million pounds of coffee beans per year (R, 2024), underscoring the importance of understanding coffee trends in this market."
+  },
+  {
+    "objectID": "posts/welcome/index.html#data-description",
+    "href": "posts/welcome/index.html#data-description",
+    "title": "Analysis of The Great American Coffee Taste Test",
+    "section": "Data Description",
+    "text": "Data Description\nThe dataset comes from a collaborative effort between James Hoffmann and Cometeer. Participants were sent coffee kits with four unique coffee samples, representing a spectrum of roast levels and processing methods:\n\nCoffee A: Light-roast Kenyan coffee.\nCoffee B: Medium-roast blend.\nCoffee C: Dark-roast blend.\nCoffee D: Single estate Colombian coffee with strong fermented flavors, an unusual variety.\n\nParticipants provided demographic data and feedback regarding brewing methods, coffee consumption habits, and their favorite coffee samples. The data set also includes answers about where participants usually drink coffee and how much they are willing to pay for a cup of coffee.\nBefore diving into the analysis, the data was cleaned to ensure accuracy. Missing values were removed, and only responses relevant to our analysis were retained.\nTo load the dataset from GitHub, use the following code:\n\nCode# Read the data from github\ncoffee_survey &lt;- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024-05-14/coffee_survey.csv')\n\n\nYou can use the following approach to clean the dataset and reproduce similar results:\n\nCode# Code to clean the dataset\n\npopularity &lt;- coffee_survey |&gt;\n  filter(!is.na(prefer_overall)) |&gt;\n  count(prefer_overall) |&gt;\n  mutate(percentage = n / sum(n) * 100) |&gt;\n  arrange(desc(n))\n\nage_gender_distribution &lt;- coffee_survey |&gt;\n  filter(!is.na(gender) & !is.na(age)) |&gt;\n  count(age, gender) |&gt;\n  group_by(age) |&gt;\n  mutate(percentage = n / sum(n) * 100) |&gt;\n  ungroup()\n\nwhere_drink_distribution &lt;- coffee_survey |&gt;\n  filter(!is.na(where_drink)) |&gt;\n  filter(where_drink %in% c(\"At home\", \"At the office\", \"At a cafe\", \"On the go\")) |&gt;\n  count(where_drink) |&gt;\n  mutate(percentage = n / sum(n) * 100) |&gt;\n  arrange(desc(percentage))\n\nbrew_distribution &lt;- coffee_survey |&gt;\n  filter(!is.na(brew)) |&gt;\n  filter(brew %in% c(\"Pour over\", \"Espresso\", \"French press\", \"Other\", \"Coffee brewing machine\", \"Cold brew\")) |&gt;\n  count(brew) |&gt;\n  mutate(percentage = n / sum(n) * 100) |&gt;\n  arrange(desc(percentage))\n\nmost_paid_distribution &lt;- coffee_survey |&gt;\n  filter(!is.na(most_paid)) |&gt;\n  count(most_paid) |&gt;\n  mutate(percentage = n / sum(n) * 100) |&gt;\n  arrange(desc(percentage))"
+  },
+  {
+    "objectID": "posts/welcome/index.html#analysis",
+    "href": "posts/welcome/index.html#analysis",
+    "title": "Analysis of The Great American Coffee Taste Test",
+    "section": "Analysis",
+    "text": "Analysis\n1. Coffee Preferences\nThe first insight from the analysis focuses on coffee taste preferences. As shown in Figure 1, Coffee D (the experimental Colombian coffee) was the most popular choice, with 36.7% of the votes. This suggests that consumers are open to trying more unusual, fermented flavor profiles. Coffee A (light-roast Kenyan) followed closely behind with 21.7% of the votes, indicating a strong market for lighter, fruitier coffee options.\n\n\n\n\n\n\n\nFigure 1: Overall Perferences\n\n\n\n\n2. Gender and Age Group Distribution\nNext, we looked at the demographic breakdown of the participants to see how gender and age impact coffee preferences. Figure 2 shows that the highest male representation (74.7%) is in the 18-24 age group, while the highest female percentage (38.2%) is in the 55-64 age group. This distribution suggests that coffee shops may want to tailor marketing strategies for specific age groups and genders, such as offering bolder, experimental coffees like Coffee D to younger male customers and more traditional options to older female customers.\n\n\n\n\n\n\n\nFigure 2: Gender Distribution by Age Group\n\n\n\n\n3. Where Consumers Drink Coffee\nThe location where people typically drink their coffee plays a huge role in shaping consumer behavior. As shown in Table 1, 86.9% of respondents drink their coffee at home, meaning that a coffee shop’s strategy should include offering products like specialty beans or brewing equipment for home use. Only a small percentage of people (7.2%) prefer drinking coffee at cafes, indicating that takeaway or home brewing products could be more profitable than focusing exclusively on in-shop experiences.\n\n\n\nTable 1: Where do you typically drink coffee?\n\n\n\n\nLocation\nPercentage Responded\n\n\n\nAt home\n86.9\n\n\nAt the office\n7.5\n\n\nAt a cafe\n3.8\n\n\nOn the go\n1.7\n\n\n\n\n\n\n\n\n4. Brewing Methods\nBrewing methods are critical to consumer experience, and our client will need to cater to these preferences. As seen in Figure 3, pour-over brewing is the most popular method, used by 49.4% of respondents. Espresso machines come second at 25.2%. This insight could inform the types of equipment and coffee products offered in the shop. Given the growing interest in at-home brewing, workshops or product lines that focus on teaching and enhancing the pour-over experience could add value to the brand.\n\n\n\n\n\n\n\nFigure 3: How do you brew coffee at home?\n\n\n\n\n5. Consumer Price Sensitivity\nFinally, we analyzed how much participants are willing to spend on a cup of coffee. Figure 4 shows that the majority of respondents are comfortable paying between $6-$8 for a cup, with another 28.4% willing to pay $8-$10. This suggests that there is room for premium pricing, particularly if the shop focuses on high-quality, specialty coffees like Coffee D, which appeals to younger and more adventurous consumers.\n\n\n\n\n\n\n\nFigure 4: What is the most you’ve ever paid for a cup of coffee?"
+  },
+  {
+    "objectID": "posts/welcome/index.html#conclusion",
+    "href": "posts/welcome/index.html#conclusion",
+    "title": "Analysis of The Great American Coffee Taste Test",
+    "section": "Conclusion",
+    "text": "Conclusion\nThe Great American Coffee Taste Test provides a wealth of data that can guide our client in opening a successful coffee shop. The key findings suggest:\n\nCoffee Preferences: Bold, experimental coffees like Coffee D are popular, particularly with younger consumers, while lighter roasts like Coffee A also hold strong appeal.\nConsumer Demographics: Younger males are more likely to experiment with unusual coffee flavors, while older females may prefer more traditional coffee types.\nDrinking Locations: The majority of coffee consumption happens at home, so products that cater to the at-home experience—like specialty beans and brewing tools—are likely to be well-received.\nBrewing Preferences: Pour-over is the most popular brewing method, providing an opportunity for educational workshops or branded products focused on this technique.\nPrice Sensitivity: Most consumers are willing to spend between $6 and $10 for a premium cup of coffee, suggesting there is room for premium pricing.\n\nArmed with these insights, our client can craft a unique brand that resonates with coffee lovers across the U.S., providing both in-shop experiences and products for at-home brewing."
+  },
+  {
+    "objectID": "posts/welcome/index.html#reference",
+    "href": "posts/welcome/index.html#reference",
+    "title": "Analysis of The Great American Coffee Taste Test",
+    "section": "Reference",
+    "text": "Reference\nData Science Learning Community (2024). Tidy Tuesday: A weekly social data project. https://tidytues.day\nR, E. (2024, September 6). 8 countries that drink the most coffee each year. TheTravel. https://www.thetravel.com/countries-that-drink-most-coffee/"
+  }
+]

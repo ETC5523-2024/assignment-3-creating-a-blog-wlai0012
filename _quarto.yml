@@ -1,17 +1,27 @@
 project:
   type: website
+  output-dir: doc
 
 website:
-  title: "blog-template"
+  title: "Christy LAI"
   navbar:
     right:
-      - about.qmd
+      - text: "Home"
+        href: index.qmd
+      - text: "Blog"
+        href: blog.qmd
+      - text: "About"
+        href: about.qmd
       - icon: github
-        href: https://github.com/etc5523-2022
+        href: https://github.com/wlai0012
 format:
   html:
-    theme: cosmo
+    theme: minty
     css: styles.css
+    code-block-border-left: "#6ac490"
+    code-block-bg: "#ebf5ef"
+
+
 
 
 

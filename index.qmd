@@ -1,14 +1,22 @@
 ---
-title: "ETC5523 Blog Assessment"
-listing:
-  contents: posts
-  sort: "date desc"
-  type: default
-  categories: true
-  sort-ui: false
-  filter-ui: false
-page-layout: full
+title: "Welcome!"
+format:
+  html:
+    theme: minty
+    css: styles.css
 title-block-banner: true
 ---
 
+<div style="display: flex; align-items: left;">
 
+  <img src="welcome.jpg" alt="Welcome" style="width: 200px; margin-right: 20px;">
+
+  <div>
+Hello! I’m Christy!
+
+I am an early childhood teacher and a new student exploring the field of business analytics. Currently, I’m learning and experimenting with R, and this personal website serves as a record of my journey and discoveries.
+
+Thanks for stopping by!
+  </div>
+
+</div>
