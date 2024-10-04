@@ -1,0 +1,19 @@
+/* css styles */
+.navbar-dark, .quarto-title-banner {
+  background-color: #badbc8;
+}
+
+/* Set font colors for headings */
+h1, h2, h3, h4, h5, h6 {
+  color: #2A9D8F;  /* Teal, matching Minty theme */
+}
+
+
+/* Customize the link color */
+a {
+  color: #17A2B8;  /* A minty teal/blue */
+}
+
+a:hover {
+  color: #4CAF50;  /* Hover state for links */
+}
